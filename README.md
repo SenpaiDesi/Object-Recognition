@@ -6,8 +6,8 @@
 Python 3.9.x
 
 ## Pip requirements
-opencv-python==4.5.4.58
-opencv-contrib-python==4.5.4.58
+- opencv-python==4.5.4.58
+- opencv-contrib-python==4.5.4.58
 
 # How to run on video:
 In detector.py at line 8  | cap = cv2.VideoCapture("./samples/street_vid.mp4")
