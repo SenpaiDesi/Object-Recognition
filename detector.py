@@ -2,6 +2,7 @@
 import numpy as np
 import cv2
 import os
+people = 0
 thres = 0.5 # Threshold to detect object
 nms_threshold = 0.2 #(0.1 to 1) 1 means no suppress , 0.1 means high suppress 
 # Setting video source. use cv2.VideoCapture(0) to use the first available camera.
@@ -56,8 +57,15 @@ while True:
             #cv2.imwrite(f"./objects/object-{classNames[classIds[i]-1]}--{i}.png", img)
             cv2.putText(img, classNames[classIds[i]-1]+" "+confidence,(x+10,y+20),
                             font,1,color,2)
+            if classNames[classIds[i]-1] == "person":
+                people += 1
+
 
     cv2.imshow("Object Recognition V1.0",img)
     if cv2.waitKey(1) == ord("q"):
         print("[INFO]    EXIT!")
+        print("-" * 100 )
+        print("RESULTS:\n")
+        print(f"Total humans detected within the current session: {people}\n")
+        print("-" * 100 )
         exit()
